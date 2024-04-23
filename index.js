@@ -1,6 +1,11 @@
 const net = require('net');
+const commands = require('./commands');
+const getPort = require('./utils/helpers');
 
 console.log("ByteBurst starting up...");
+const PORT = getPort();
+
+console.log(process.argv, PORT);
 
 const server = net.createServer((connection) => {
     // Handle connection
@@ -15,4 +20,4 @@ const server = net.createServer((connection) => {
     });
 });
 
-server.listen(5000, "127.0.0.1");
+server.listen(PORT, "127.0.0.1");
